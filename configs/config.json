@@ -1,0 +1,19 @@
+{
+    "grpc": {
+        "environment":{
+            "development": {
+               "port": "50051",
+               "network": "tcp",
+               "hostname": "localhost"
+            }
+        }
+    },
+    "rest": {
+        "environment":{
+            "development": {
+               "port": "50052",
+               "hostname": "localhost"
+            }
+        }
+    }
+}

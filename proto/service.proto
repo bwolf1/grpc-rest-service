@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option go_package = "github.com/bwolf1/grpc-rest-kubernetes/proto";
+
+package github.bwolf1.echoservice;
+
+import "google/api/annotations.proto";
+
+// The Echoer service definition.
+service Echoer {
+  rpc Echo (EchoRequest) returns (EchoResponse) {
+    option (google.api.http) = {
+      get: "/echo/{word}"
+    };
+}
+}
+
+// The request message containing the word to echo.
+message EchoRequest {
+  string word = 1;
+}
+
+// The response message containing the echoed wor with a timstamp from the service.
+message EchoResponse {
+  string echo = 1;
+  // TODO convert to `google.protobuf.Timestamp`.
+  string timestamp = 2;
+}
