@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "github.com/bwolf1/grpc-rest-kubernetes/proto";
+
+package github.bwolf1.echoservice;
+
+// The Echoer service definition.
+service Echoer {
+  rpc Echo (EchoRequest) returns (EchoResponse) {}
+}
+
+// The request message containing the word to echo.
+message EchoRequest {
+  string word = 1;
+}
+
+// The response message containing the echoed wor with a timstamp from the service.
+message EchoResponse {
+  string echo = 1;
+  string timestamp = 2;
+}
