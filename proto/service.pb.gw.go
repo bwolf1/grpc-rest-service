@@ -129,14 +129,14 @@ func RegisterEchoerHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMu
 	defer func() {
 		if err != nil {
 			if cerr := conn.Close(); cerr != nil {
-				grpclog.Infof("Failed to close conn to %s: %v", endpoint, cerr)
+				grpclog.Infof("failed to close conn to %s: %v", endpoint, cerr)
 			}
 			return
 		}
 		go func() {
 			<-ctx.Done()
 			if cerr := conn.Close(); cerr != nil {
-				grpclog.Infof("Failed to close conn to %s: %v", endpoint, cerr)
+				grpclog.Infof("failed to close conn to %s: %v", endpoint, cerr)
 			}
 		}()
 	}()

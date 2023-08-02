@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  grpcServer:
+    image: grpc-rest-kubernetes:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-grpcserver
+    ports:
+      - "50051:50051"
+    entrypoint:
+      - ./grpc-rest-kubernetes
+      - grpcServer
+    networks:
+      - backend
+  restproxy:
+    image: grpc-rest-kubernetes:latest
+    build:
+        context: .
+        dockerfile: Dockerfile-restproxy
+    ports:
+        - "8080:8080"
+    entrypoint:
+        - ./grpc-rest-kubernetes
+        - restProxy
+    networks:
+      - backend
+volumes:
+  data:
+networks:
+  backend:
