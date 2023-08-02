@@ -1,0 +1,18 @@
+FROM golang:1.20 AS builder
+
+RUN apt-get update && apt-get install -y unzip && apt-get clean
+
+COPY go.mod go.sum /Users/brianwolf/repos/grpc-rest-kubernetes/
+WORKDIR /Users/brianwolf/repos/grpc-rest-kubernetes
+RUN go mod tidy
+COPY . /Users/brianwolf/repos/grpc-rest-kubernetes
+RUN GO111MODULE=on CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o grpc-rest-kubernetes
+
+FROM debian:bookworm
+WORKDIR /app
+
+COPY --from=builder /Users/brianwolf/repos/grpc-rest-kubernetes/grpc-rest-kubernetes grpc-rest-kubernetes
+RUN chmod +x grpc-rest-kubernetes
+
+EXPOSE 50051
+ENTRYPOINT ["./grpc-rest-kubernetes", "grpcServer"]

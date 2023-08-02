@@ -15,7 +15,7 @@ type Server struct {
 
 // Echo takes a single word and returns it to the caller with a UTC timestamp.
 func (s *Server) Echo(ctx context.Context, in *pb.EchoRequest) (*pb.EchoResponse, error) {
-	log.Printf("Echoing %s", in.Word)
+	log.Printf("echoing %s", in.Word)
 	return &pb.EchoResponse{
 		Echo:      in.GetWord(),
 		Timestamp: time.Now().UTC().String(),
