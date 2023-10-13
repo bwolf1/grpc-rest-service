@@ -4,8 +4,6 @@ Project Task List
 
 ### Todo
 
-- [ ] Add a REVERSE bool env var that when true and passed to the Echo RPC will echo the string reversed  
-  - [ ] This is how we use env vars in the code <https://go.dev/play/p/G0i481VEcBp>  
 - [ ] Add Zap logging  
 - [ ] Add Prometheus and Grafana  
   - [ ] [This article](https://adamtheautomator.com/prometheus-kubernetes/) might help  
