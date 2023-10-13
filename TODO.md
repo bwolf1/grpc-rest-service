@@ -6,11 +6,9 @@ Project Task List
 
 - [ ] Add Zap logging  
 - [ ] Add Prometheus and Grafana  
-  - [ ] [This article](https://adamtheautomator.com/prometheus-kubernetes/) might help  
 - [ ] Add README instructions for bringing up the service with prometheus and grafana  
 - [ ] Add a database  
   - [ ] Add logic for inserting the request payload into the database and using the record ID in the response body  
-  - [ ] [This article](https://www.sohamkamani.com/golang/sql-database/) might be helpful  
 - [ ] Add log storage in gcs  
 - [ ] Update to the latest versions of everything  
 
