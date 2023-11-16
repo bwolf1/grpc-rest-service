@@ -7,7 +7,6 @@ import (
 
 	"github.com/bwolf1/grpc-rest-kubernetes/pkg/service/echo"
 	pb "github.com/bwolf1/grpc-rest-kubernetes/proto"
-	"github.com/davecgh/go-spew/spew"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -30,7 +29,7 @@ var restProxyCmd = &cobra.Command{
 		pb.RegisterEchoerServer(grpcServer, &echo.Server{})
 		conn, err := grpc.DialContext(
 			context.Background(),
-			"0.0.0.0:50051", // TODO (bwolf): Get the hostname and port from viper
+			viper.GetString("hostname")+":"+viper.GetString("grpcPort"),
 			grpc.WithTransportCredentials(insecure.NewCredentials()),
 		)
 		if err != nil {
@@ -41,7 +40,7 @@ var restProxyCmd = &cobra.Command{
 			log.Fatalln("Failed to register gateway:", err)
 		}
 		http.ListenAndServe(
-			":8080", // TODO (bwolf): Get the hostname and port from viper
+			":"+viper.GetString("listenPort"),
 			httpRouter(router),
 		)
 	},
@@ -49,9 +48,7 @@ var restProxyCmd = &cobra.Command{
 
 func httpRouter(httpHandler http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		spew.Println("Debug: Before ServeHTTP")
 		httpHandler.ServeHTTP(w, r)
-		spew.Println("Debug: After ServeHTTP")
 	})
 }
 
