@@ -8,7 +8,7 @@ import (
 
 var rootCmd = &cobra.Command{
 	Use:     "echoer",
-	Version: "0.0.1",
+	Version: "0.1.0",
 	Short:   "Echoer",
 	Long: `Echoer
 	
