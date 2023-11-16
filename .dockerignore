@@ -1,3 +1,6 @@
+# The .dockerignore file excludes files from the container build process.
+#
+# https://docs.docker.com/engine/reference/builder/#dockerignore-file
 bin
 .dockerignore
 Dockerfile
@@ -5,3 +8,4 @@ docker-compose.yml
 dev.Dockerfile
 dev.docker-compose.yml
 .env
+.gitignore
