@@ -76,7 +76,7 @@ type EchoResponse struct {
 	unknownFields protoimpl.UnknownFields
 
 	Echo string `protobuf:"bytes,1,opt,name=echo,proto3" json:"echo,omitempty"`
-	// TODO convert to `google.protobuf.Timestamp`.
+	// TODO (bwolf1): convert to `google.protobuf.Timestamp`.
 	Timestamp string `protobuf:"bytes,2,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 }
 

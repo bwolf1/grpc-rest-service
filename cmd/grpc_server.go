@@ -24,20 +24,25 @@ var grpcServerCmd = &cobra.Command{
 		viper.SetConfigName("config")
 		viper.SetConfigType("json")
 		viper.ReadInConfig()
+		//  (bwolf1) move the network and port with viper instead of this hard coding
+		network := "tcp"
+		port := 50051
 
 		// Start the server.
 		listen, err := net.Listen(
-			viper.GetString("grpc.environment.development.network"),
-			fmt.Sprintf(
-				":%d",
-				viper.GetInt64("grpc.environment.development.port")),
+			network,
+			fmt.Sprintf(":%d", port),
 		)
 		if err != nil {
-			log.Fatalf("failed to listen: %v", err)
+			log.Fatalf("failed to listen with network string %v and address string %v : %v",
+				network,
+				fmt.Sprintf(":%d", port),
+				err,
+			)
 		}
 		s := grpc.NewServer()
 		pb.RegisterEchoerServer(s, &echo.Server{})
-		log.Printf("server listening at %v", listen.Addr())
+		log.Printf("grpcServer listening at %v", listen.Addr())
 		if err := s.Serve(listen); err != nil {
 			log.Fatalf("server failure: %v", err)
 		}

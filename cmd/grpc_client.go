@@ -26,7 +26,7 @@ var grpcClientCmd = &cobra.Command{
 
 		// Create the client connection to the server.
 		conn, err := grpc.Dial(
-			viper.GetString("grpc.environment.development.hostname")+":"+viper.GetString("grpc.environment.development.port"),
+			"0.0.0.0:50051",
 			grpc.WithTransportCredentials(insecure.NewCredentials()),
 		)
 		if err != nil {
@@ -36,7 +36,8 @@ var grpcClientCmd = &cobra.Command{
 		c := pb.NewEchoerClient(conn)
 
 		// Create a context for the RPC (remote procedure call).
-		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+		// TODO (bwolf1): add this 10 second time out value to the config and use it from there
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 		defer cancel()
 
 		// Call the Echo RPC method on the server.
