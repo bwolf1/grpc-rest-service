@@ -1,20 +1,7 @@
 {
-    "grpc": {
-        "environment":{
-            "development": {
-                "network": "tcp",
-                "hostname": "0.0.0.0",
-                "port": "50051"
-            }
-        }
-    },
-    "rest": {
-        "environment":{
-            "development": {
-                "network": "tcp",
-                "hostname": "0.0.0.0",
-                "port": "8080"
-            }
-        }
-    }
+    "hostname": "0.0.0.0",
+    "grpcPort": "50051",
+    "network": "tcp",
+    "listenPort": "8080",
+    "timeout": 10
 }
