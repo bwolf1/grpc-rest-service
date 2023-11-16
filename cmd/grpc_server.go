@@ -24,9 +24,8 @@ var grpcServerCmd = &cobra.Command{
 		viper.SetConfigName("config")
 		viper.SetConfigType("json")
 		viper.ReadInConfig()
-		//  (bwolf1) move the network and port with viper instead of this hard coding
-		network := "tcp"
-		port := 50051
+		network := viper.GetString("network")
+		port := viper.GetInt("grpcPort")
 
 		// Start the server.
 		listen, err := net.Listen(
