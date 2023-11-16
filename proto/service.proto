@@ -23,6 +23,5 @@ message EchoRequest {
 // The response message containing the echoed wor with a timstamp from the service.
 message EchoResponse {
   string echo = 1;
-  // TODO (bwolf1): convert to `google.protobuf.Timestamp`.
   string timestamp = 2;
 }
