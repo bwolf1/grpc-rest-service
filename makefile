@@ -1,4 +1,3 @@
-# TODO (bwolf1): Make running the makefile part of the build when built via docker
 .PHONY: build-service
 ## build-service: builds the service from the protobuf spec
 build-service:
