@@ -18,6 +18,6 @@ func (s *Server) Echo(ctx context.Context, in *pb.EchoRequest) (*pb.EchoResponse
 	log.Printf("echoing %s", in.Word)
 	return &pb.EchoResponse{
 		Echo:      in.GetWord(),
-		Timestamp: time.Now().UTC().String(),
+		Timestamp: time.Now().UTC().Truncate(1000 * time.Millisecond).String(),
 	}, nil
 }
