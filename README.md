@@ -1,7 +1,7 @@
 # A containerized REST and gRPC service
 
-This is built to be used as a template for creating a containerized Golang gRPC
-service with a REST gateway, metrics and logging, residing in a kubernetes cluster.
+This is intended to be used as a template for creating a containerized Golang gRPC
+service with a REST gateway, residing in a kubernetes cluster.
 
 A small Golang gRPC client is also included, for testing.
 
