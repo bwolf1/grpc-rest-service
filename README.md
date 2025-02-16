@@ -1,6 +1,6 @@
-# Containerized Golang gRPC service with a REST gateway
+# grpc-rest-service
 
-gRPC service with a REST gateway
+Containerized gRPC service with a REST gateway
 
 - [Go](https://go.dev/)
 - [gRPC](https://grpc.io/)
