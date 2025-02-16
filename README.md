@@ -9,6 +9,7 @@ gRPC service with a REST gateway
 ## Goals
 
 - Learn how to set up [gRPC-gateway](https://grpc-ecosystem.github.io/grpc-gateway/)
+- Learn how to set up branch restrictions and automated test runs
 - Have a template to use for something else
 
 ## Generating the protobuf code
