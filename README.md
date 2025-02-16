@@ -1,12 +1,13 @@
 # Containerized Golang gRPC service with a REST gateway
 
-A fully functional gRPC service with a REST gateway, built with
-[Go](https://go.dev/), [gRPC](https://grpc.io/) and
-[gRPC-gateway](https://grpc-ecosystem.github.io/grpc-gateway/),
-that can be used as a template for creating other containerized Golang gRPC
-services with a REST gateway.
+gRPC service with a REST gateway
 
-A small Golang gRPC client is also included, for testing.
+- [Go](https://go.dev/)
+- [gRPC](https://grpc.io/)
+- [gRPC-gateway](https://grpc-ecosystem.github.io/grpc-gateway/)
+
+## Goals
+Template for creating similar services.
 
 ## Generating the protobuf code
 
