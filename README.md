@@ -7,7 +7,9 @@ gRPC service with a REST gateway
 - [gRPC-gateway](https://grpc-ecosystem.github.io/grpc-gateway/)
 
 ## Goals
-Template for creating similar services.
+
+- Learn how to set up [gRPC-gateway](https://grpc-ecosystem.github.io/grpc-gateway/)
+- Have a template to use for something else
 
 ## Generating the protobuf code
 
